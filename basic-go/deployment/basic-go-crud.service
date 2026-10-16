@@ -1,0 +1,35 @@
+[Unit]
+Description=Basic Go CRUD REST API Service
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/basic-go-crud
+ExecStart=/var/www/basic-go-crud/basic-go-crud
+Restart=always
+RestartSec=5s
+
+# Membaca environment dari file .env
+EnvironmentFile=/var/www/basic-go-crud/.env
+
+# Atau bisa definisikan langsung di sini:
+# Environment=PORT=8080
+# Environment=GIN_MODE=release
+# Environment=DB_HOST=127.0.0.1
+# Environment=DB_PORT=5432
+# Environment=DB_USER=postgres
+# Environment=DB_PASSWORD=postgres_password_kamu
+# Environment=DB_NAME=crud_db
+# Environment=DB_SSLMODE=disable
+
+# Pengaturan batas file descriptor & logging
+LimitNOFILE=65536
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=basic-go-crud
+
+[Install]
+WantedBy=multi-user.target

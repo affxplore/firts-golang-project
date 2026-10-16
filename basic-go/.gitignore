@@ -1,0 +1,14 @@
+# Binaries
+basic-go-crud
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Environment files
+.env
+
+# Test & OS
+*.out
+.DS_Store
