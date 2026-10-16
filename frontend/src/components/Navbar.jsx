@@ -1,7 +1,7 @@
 import React from 'react';
 import { Package, Plus, RefreshCw, Server, AlertCircle } from 'lucide-react';
 
-export default function Navbar({ isBackendHealthy, isCheckingHealth, onRefresh, onOpenCreateModal }) {
+export default function Navbar({ isBackendHealthy, isCheckingHealth, onRefresh, onOpenCreate }) {
   return (
     <header className="navbar">
       <div className="navbar-inner">
@@ -42,7 +42,7 @@ export default function Navbar({ isBackendHealthy, isCheckingHealth, onRefresh, 
           <button
             id="btn-open-create-modal"
             className="btn btn-primary"
-            onClick={onOpenCreateModal}
+            onClick={onOpenCreate}
           >
             <Plus size={18} />
             <span>Tambah Produk</span>
